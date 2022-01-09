@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ecf0f1;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75rem;
+    flex-wrap: wrap;
+    padding: 2.5rem 0;
+}
+
+.container .card {
+    position: relative;
+    width: 20rem;
+    height: 27.5rem;
+    box-shadow: inset 0.313rem 0.313rem 0.313rem rgba(0, 0, 0, 0.05),
+                inset -0.313rem -0.313rem 0.313rem rgba(255, 255, 255, 0.5),
+                0.313rem 0.313rem 0.313rem rgba(0, 0, 0, 0.05),
+                -0.313rem -0.313rem 0.313rem rgba(255, 255, 255, 0.5);
+    border-radius: 0.938rem;
+    margin: 1.875rem;
+}
+
+.container .card .box {
+    position: absolute;
+    top: 1.250rem;
+    left: 1.250rem;
+    right: 1.250rem;
+    bottom: 1.250rem;
+    background: #ecf0f1;
+    box-shadow: 0 0.625rem 1.250rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.938rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.container .card:hover .box {
+    transform: translateY(-3.125rem);
+    box-shadow: 0 0.625rem 2.500rem rgba(0, 0, 0, 0.2);
+    background:  linear-gradient(45deg, #92fe9d, #00c9ff);
+}
+
+.container .card .box .content {
+    padding: 1.250rem;
+    text-align: center;
+}
+
+.container .card .box .content h2 {
+    position: absolute;
+    top: -0.625rem;
+    right: 1.875rem;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.container .card:hover .box .content h2 {
+    color: rgba(0, 0, 0, 0.05);
+}
+
+.container .card .box .content h3 {
+    font-size: 1.8em;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.container .card:hover .box .content h3,
+.container .card:hover .box .content p {
+    color: #34495e;
+}
+
+.container .card .box .content p {
+    font-size: 1em;
+    font-weight: 300;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.container .card .box .content a {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1.250rem;
+    background: #2c3e50;
+    margin-top: 0.938rem;
+    border-radius: 1.250rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: 0 0.625rem 1.250rem rgba(0, 0, 0, 0.2);
+}
+
+.container .card:hover .box .content a {
+    background: #e67e22;
+}
