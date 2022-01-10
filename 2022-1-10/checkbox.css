@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #e8eaf6;
+    overflow: hidden;
+}
+
+label {
+    position: relative;
+    width: 10rem;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #90a4ae; */
+    cursor: pointer;
+}
+
+label::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 0.250rem;
+    background: #263238;
+    border-radius: 0.250rem;
+}
+
+label input {
+    position: absolute;
+    appearance: none;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    width: 5rem;
+    height: 100%;
+    /* background: red; */
+    transition: 0.5s;
+}
+
+label input:checked ~ .icon {
+    left: 5rem;
+}
+
+.icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.8rem;
+    height: 100%;
+    background: linear-gradient(#fff, #fff, #e3e3e3);
+    filter: blur(0.063rem);
+    z-index: 1;
+}
+
+.icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -0.063rem;
+    width: 0.8rem;
+    height: 100%;
+    background: #b0bec5;
+    filter: blur(0.063rem);
+}
+
+.shadow {
+    position: absolute;
+    top: 2.5rem;
+    left: -1.031rem;
+    width: 7.071rem;
+    height: 18.750rem;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent, transparent);
+    transform-origin: top;
+    transform: rotate(315deg);
+    pointer-events: none;
+}
+
+.iconBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#eceff1, #cfd8dc);
+    box-shadow: 0.313rem 0.313rem 0.313rem rgba(0, 0, 0, 0.1),
+    0.938rem 0.938rem 0.938rem rgba(0, 0, 0, 0.1),
+    1.250rem 1.250rem 0.938rem rgba(0, 0, 0, 0.1),
+    1.875rem 1.875rem 0.938rem rgba(0, 0, 0, 0.1),
+    inset 0.063rem 0.063rem 0.125rem #fff;
+}
+
+.iconBox ion-icon {
+    color: #555;
+    font-size: 1.5em;
+    --ionicon-stroke-width: 3.125rem;
+    transition: 0.5s;
+}
+
+label input:checked ~ .icon .iconBox ion-icon {
+    color: #64ffda;
+    filter: drop-shadow(0 0 0.313rem #64ffda) drop-shadow(0 0 0.938rem #64ffda);
+}
