@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./lightMousemove.css">
+  <title>Power Of Light</title>
+</head>
+<body>
+  <section>
+    <h2>Light</h2>
+  </section>
+  <div class="light"></div>
+
+  <script text="text/javascript">
+    let pos = document.documentElement;
+    pos.addEventListener('mousemove', e => {
+      pos.style.setProperty('--x', e.clientX + 'px');
+      pos.style.setProperty('--y', e.clientY + 'px');
+    })
+  </script>
+</body>
+</html>
