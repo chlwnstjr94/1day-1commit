@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./custom-dropdown.css">
+  <title>Custom Dropdown Menu</title>
+</head>
+<body>
+  <div class="dropdown">
+    <input type="text" class="text02" readonly placeholder="Dropdown Menu">
+    <div class="option">
+      <div onmouseover="show('Html')">Html</div>
+      <div onmouseover="show('CSS')">CSS</div>
+      <div onmouseover="show('Javascript')">Javascript</div>
+      <div onmouseover="show('ReactJS')">ReactJS</div>
+      <div onmouseover="show('Photoshop')">Photoshop</div>
+    </div>
+  </div>
+
+  <script>
+    function show(a) {
+      document.querySelector('.text02').value = a;
+    }
+
+    let dropdown = document.querySelector('.dropdown');
+    dropdown.onclick = function() {
+      dropdown.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
