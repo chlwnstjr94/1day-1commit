@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./animated-title.css">
+  <title>Animated Title</title>
+</head>
+<body>
+  <div class="hero">
+    <div class="title">
+      <h1>TRENDING DEALS</h1>
+      <div class="back-text">
+        <span>O</span>
+        <span>F</span>
+        <span>F</span>
+        <span>E</span>
+        <span>R</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let spanTexts = document.getElementsByTagName('span');
+    window.onload = function() {
+      for(spanText of spanTexts) {
+        spanText.classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
