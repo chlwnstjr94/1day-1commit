@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./parallax-scrolling.css">
+  <title>Document</title>
+</head>
+<body>
+  <header id="header">
+    <a href="#" class="logo">Logo</a>
+    <ul class="navigation">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </header>
+  <section>
+    <h2 id="txt">Hello Winter</h2>
+    <img src="./monutain_01.png" id="m1">
+    <img src="./monutain_02.png" id="m2">
+    <img src="./monutain_03.png" id="m3">
+    <img src="./monutain_04.png" id="m4">
+    <img src="./trees.png" id="tr">
+    <img src="./cable_cars.png" id="crs">
+    <img src="./house.png" id="house">
+  </section>
+  <div class="sec">
+    <h2>Parallax Scrolling Website</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloribus cumque ullam quas sit vero nobis, unde sunt laborum perferendis aliquam, officiis quia vel blanditiis possimus? Eius praesentium voluptate totam iure accusamus quaerat ut officia nesciunt sequi rem. Similique optio dolor molestiae, maiores totam voluptates sequi nihil, dicta quibusdam dolore facere praesentium laudantium laborum non aperiam aspernatur repellat iusto ex magnam nobis! Quisquam illo dicta reiciendis itaque nisi eaque rerum sint iste iure eum adipisci natus pariatur numquam, sequi quasi expedita, officia aperiam perspiciatis aut eos quia mollitia odio nesciunt. Rerum, dolorum voluptates atque perferendis voluptatem sapiente ullam nam, corrupti expedita, impedit nobis nostrum consequatur deleniti sed ut neque! Ipsum magni temporibus praesentium eos dicta soluta explicabo accusamus quasi aliquid reprehenderit qui dolorum atque, dignissimos iste, sint quibusdam minima odio consequatur? Ducimus animi itaque ipsa dolor nihil, beatae nostrum ex quo ullam tenetur! Quos eligendi veniam inventore quaerat enim. Accusamus debitis nam reprehenderit in voluptate dolor libero eveniet numquam necessitatibus, magni iusto eius nisi sit perspiciatis facere, officiis at odio dolorum, ut consequatur! A omnis ipsam minus velit dignissimos expedita aut neque, ab id explicabo vero repudiandae commodi culpa sequi totam sunt. Non maxime unde quaerat ullam possimus dicta vero sed blanditiis explicabo eligendi dolor optio, nihil voluptatum iure. Amet incidunt obcaecati mollitia omnis corrupti officiis nobis beatae nulla modi, et earum magni veritatis atque labore aut odit ipsum voluptate dolores! Eius, porro. Sit ab quae asperiores corrupti, consequatur cumque libero saepe doloremque, sint vero, mollitia nemo esse animi neque.<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam iste quod ipsum eos corrupti error mollitia ullam magnam minus excepturi labore doloremque quisquam obcaecati, voluptates fugiat! Aperiam incidunt, illum quos eum commodi quibusdam veritatis, dolor odio non, et vero inventore necessitatibus sunt magnam eaque harum? Repellat doloribus cum eius. Repudiandae amet omnis eos enim exercitationem perspiciatis totam at, unde nisi minus voluptatem repellendus sed, dicta culpa dolor architecto voluptas quod alias cumque fugiat, saepe molestiae aliquam? Dolores eaque provident illum, nam in illo iste velit ab itaque, est ad repellat officia distinctio molestiae laudantium facere fugit et id voluptatum veritatis dicta! Id perferendis ullam, perspiciatis odio sequi ipsa veniam quaerat inventore dolor ipsum, soluta praesentium, magnam impedit atque velit? Illo odit consequuntur repudiandae recusandae, molestiae accusantium aliquam. Tempore laborum soluta harum in similique quis provident quas repudiandae pariatur libero nisi, voluptatum vel sint quisquam id ut qui repellat aspernatur blanditiis doloremque quibusdam modi! Modi, quisquam minima laboriosam non, dolores quas, perspiciatis temporibus animi laudantium quaerat veniam cumque expedita delectus pariatur quo architecto necessitatibus similique! Deleniti eius, praesentium non dolor quidem saepe placeat consequatur odit. Eius impedit amet pariatur nulla minus dolores inventore magni dignissimos! Illum culpa doloribus soluta minus temporibus esse id natus aut incidunt sunt quidem sequi quos voluptate, magnam dolore unde deserunt! Laboriosam asperiores eos aliquid non dolore dignissimos rem saepe eum, praesentium aliquam ad doloribus ipsum, dolorum est sed cupiditate tempore reiciendis porro. Porro corporis rem deleniti, dolorum ipsum nesciunt optio voluptatum, natus esse itaque eligendi neque.</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.from("#txt", {
+      scrollTrigger : {
+        scrub: true
+      },
+      x: 350,
+    })
+    gsap.from("#m1", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 100,
+    })
+    gsap.from("#m2", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 50,
+    })
+    gsap.from("#m3", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 200,
+    })
+    gsap.from("#m4", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 150,
+    })
+    gsap.from("#tr", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 150,
+    })
+    gsap.from("#crs", {
+      scrollTrigger : {
+        scrub: true
+      },
+      x: 100,
+    })
+    gsap.from("#house", {
+      scrollTrigger : {
+        scrub: true
+      },
+      y: 50,
+    })
+  </script>
+</body>
+</html>
