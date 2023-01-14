@@ -1,0 +1,29 @@
+.container {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+form {
+  margin-top: 1em;
+}
+
+input {
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+
+button {
+  padding: 0.5em;
+  margin-top: 0.5em;
+  background-color: #4267b2;
+  color: white;
+  border: none;
+  width: 100%;
+}
