@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./quote-generator.css">
+  <title>Quote of the day</title>
+</head>
+<body>
+  <div class="quote-box">
+    <h2>Quote of the day</h2>
+    <blockquote id="quote">Loading...</blockquote>
+    <span id="author">Loading...</span>
+    <div>
+      <button onclick="getquote(api_uri)">New Quote</button>
+      <button onclick="tweet()"><ion-icon name="logo-twitter"></ion-icon> Tweet</button>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const quote = document.getElementById("quote");
+    const author = document.getElementById("author");
+    const api_uri = "https://api.quotable.io/random";
+
+    async function getquote(url) {
+      const response = await fetch(url);
+      let data = await response.json();
+      console.log(data);
+      quote.innerHTML = data.content;
+      author.innerHTML = data.author;
+    }
+
+    getquote(api_uri);
+
+    function tweet() {
+      window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + "---- by " + author.innerHTML, "Tweet Window", "width=600, height=300");
+    }
+  </script>
+</body>
+</html>
