@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./chatGPT-stopwatch.css">
+  <title>chatGPT | Stop Watch</title>
+</head>
+<body>
+  <div class="stopwatch">
+    <h1>Stopwatch</h1>
+    <div class="display">00:00:00</div>
+    <button class="start-btn">Start</button>
+    <button class="stop-btn">Stop</button>
+    <button class="reset-btn">Reset</button>
+  </div>
+
+  <script>
+    let milliseconds = 0;
+    let seconds = 0;
+    let minutes = 0;
+    let display = document.querySelector('.display');
+    let interval = null;
+
+    function startTimer() {
+      interval = setInterval(function() {
+        milliseconds += 10;
+        if (milliseconds == 1000) {
+          milliseconds = 0;
+          seconds++;
+        }
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+        }
+        display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds) + ":" + (milliseconds < 100 ? (milliseconds < 10 ? "00" + milliseconds : "0" + milliseconds) : milliseconds);
+      }, 10);
+    }
+
+    function stopTimer() {
+      clearInterval(interval);
+    }
+
+    function resetTimer() {
+      clearInterval(interval);
+      milliseconds = 0;
+      seconds = 0;
+      minutes = 0;
+      display.textContent = "00:00:00";
+    }
+
+    let startBtn = document.querySelector('.start-btn');
+    let stopBtn = document.querySelector('.stop-btn');
+    let resetBtn = document.querySelector('.reset-btn');
+
+    startBtn.addEventListener('click', startTimer);
+    stopBtn.addEventListener('click', stopTimer);
+    resetBtn.addEventListener('click', resetTimer);
+  </script>
+</body>
+</html>
