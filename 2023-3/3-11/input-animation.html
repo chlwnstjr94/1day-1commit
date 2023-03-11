@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./input-animation.css">
+  <title>Input Animation</title>
+</head>
+<body>
+  <div class="container">
+    <div class="add_btn">
+      <ion-icon class="add-icon" name="add-outline"></ion-icon>
+    </div>
+    <div class="input_wrapper">
+      <input type="text" placeholder="Enter your message">
+    </div>
+  </div>
+
+  <script>
+    const addBtn = document.querySelector('.add_btn');
+    const inputWrapper = document.querySelector('.input_wrapper');
+    const input = document.querySelector('.input_wrapper input');
+
+    addBtn.addEventListener('click', () => {
+      if (input.value !== '') {
+        sendMessage();
+      };
+
+      inputWrapper.classList.toggle('open');
+
+      const isOpen = inputWrapper.classList.contains('open');
+      addBtn.innerHTML = isOpen 
+        ? '<ion-icon name="send-sharp"></ion-icon>'
+        : '<ion-icon class="add-icon" name="add-outline"></ion-icon>'
+    });
+
+    function sendMessage() {
+      alert('SEND MESSAGE: ' + input.value);
+      input.value = '';
+    };
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
