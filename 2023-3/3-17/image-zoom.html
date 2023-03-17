@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./image-zoom.css">
+  <title>Image Zoom Effects</title>
+</head>
+<body>
+  <div class="img-container">
+    <div class="lens"></div>
+    <img src="./img1.jpg">
+  </div>
+
+  <script>
+    const imgContainer = document.querySelector('.img-container');
+    const img = document.querySelector('.img-container img');
+    const lens = document.querySelector('.lens');
+
+    
+    imgContainer.addEventListener('mouseenter', function() {
+      lens.style.display = 'block';
+      imgZoom(2);
+    });
+    imgContainer.addEventListener('mouseleave', function() {
+      lens.style.display = 'none';
+    });
+
+    function imgZoom(zoom) {
+      const imgWidth = img.width;
+      const imgHeight = img.height;
+      const halfLensWidth = lens.offsetWidth / 2;
+      const halfLensHeight = lens.offsetHeight / 2;
+
+      lens.style.backgroundImage = `url(${img.src})`;
+      lens.style.backgroundSize = `${imgWidth * zoom}px ${imgHeight * zoom}px`;
+
+      img.addEventListener('mousemove', moveLens);
+      lens.addEventListener('mousemove', moveLens);
+
+      function moveLens() {
+        const pos = getCursor();
+        let cursorX = pos.x;
+        let cursorY = pos.y;
+
+        // Lens Boundaries
+        // Left
+        if(cursorX < halfLensWidth / zoom) {
+          cursorX = halfLensWidth / zoom;
+        };
+        // Right
+        if(cursorX > imgWidth - halfLensWidth / zoom) {
+          cursorX = imgWidth - halfLensWidth / zoom;
+        };
+        // Top
+        if(cursorY < halfLensHeight / zoom) {
+          cursorY = halfLensHeight / zoom;
+        };
+        // Bottom
+        if(cursorY > imgHeight - halfLensHeight / zoom) {
+          cursorY = imgHeight - halfLensHeight / zoom;
+        };
+
+        // Set Lens Position
+        lens.style.left = cursorX - halfLensWidth + 'px';
+        lens.style.top = cursorY - halfLensHeight + 'px';
+
+        // Set Lens Background Position
+        lens.style.backgroundPosition = `-${cursorX * zoom - halfLensWidth}px -${cursorY * zoom - halfLensHeight}px`;
+      };
+    }
+
+    function getCursor() {
+      let bounds = img.getBoundingClientRect();
+
+      let x = window.event.pageX - bounds.left - window.pageXOffset;
+      let y = window.event.pageY - bounds.top - window.pageYOffset;
+
+      return { x, y };
+    };
+  </script>
+</body>
+</html>
