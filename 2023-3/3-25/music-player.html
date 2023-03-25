@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./music-player.css">
+  <title>Music Player</title>
+</head>
+<body>
+  <div class="container">
+    <div class="img_box">
+      <img src="./cover.jpg">
+    </div>
+    <div class="progress">
+      <div class="progress_line"></div>
+    </div>
+    <div class="controls">
+      <div class="btn"><ion-icon name="play-back"></ion-icon></div>
+      <div class="btn play_btn">
+        <ion-icon class="play_icon" name="play"></ion-icon>
+      </div>
+      <div class="btn"><ion-icon name="play-forward"></ion-icon></div>
+    </div>
+  </div>
+
+  <script>
+    const playBtn = document.querySelector('.play_btn');
+    const playIcon = document.querySelector('.play_icon');
+    const progressLine = document.querySelector('.progress_line');
+    const audio = new Audio('./sound.mp3');
+    let interval;
+
+    playBtn.onclick = function() {
+      const isPlaying = !audio.paused;
+      playIcon.name = isPlaying ? 'play' : 'pause';
+      progressBar();
+
+      if(isPlaying) {
+        audio.pause();
+        clearInterval(interval);
+      } else {
+        audio.play();
+        interval = setInterval(() => {
+          progressBar();
+        }, 1000)
+      };
+    };
+
+    function progressBar() {
+      const duration = audio.duration;
+      let currentTime = audio.currentTime;
+
+      if(currentTime >= duration) {
+        audio.currentTime = 0;
+        playIcon.name = 'play';
+      };
+
+      progressLine.style.width = (currentTime / duration) * 100 + '%';
+    };
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
