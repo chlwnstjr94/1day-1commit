@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #999;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checkbox {
+  position: relative;
+  width: 24vw;
+  height: 12vw;
+  -webkit-appearance: none;
+  background: #ccc;
+  outline: none;
+  border-radius: 6vw;
+  box-shadow: inset 0 0 1.6vw rgba(0, 0, 0, 0.2),
+  0 0 1.6vw rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.checkbox:checked {
+  background: #1877f2;
+}
+
+.checkbox::before {
+  content: '';
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 6vw;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: scale(1.05);
+  transition: 0.5s;
+  box-shadow: 0 0 1.6vw rgba(0, 0, 0, 0.2);
+}
+
+.checkbox:checked::before {
+  left: 12vw;
+}
