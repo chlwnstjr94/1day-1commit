@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dropdown.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Dropdown Menu</title>
+</head>
+<body>
+  <div class="dropdown-wrapper">
+    <div class="dropdown-btn">
+      <span id="selected-item">Sort By</span>
+      <span><i class="fa-solid fa-caret-down"></i></span>
+    </div>
+
+    <div class="dropdown-menu">
+      <div class="item">Best Selling</div>
+      <div class="item">New Arrivals</div>
+      <div class="item">Customer Rating</div>
+      <div class="item">Price Low to High</div>
+      <div class="item">Price High to Low</div>
+    </div>
+  </div>
+
+  <script defer>
+    let dropdownBtn = document.querySelector('.dropdown-btn');
+    let dropdownMenu = document.querySelector('.dropdown-menu');
+    let items = document.querySelectorAll('.item');
+    let selectedItem = document.getElementById('selected-item');
+
+    window.addEventListener('click', function() {
+      closeMenu();
+    });
+
+    dropdownBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    items.forEach(item => item.addEventListener('click', itemClickHandler));
+
+    function toggleMenu() {
+      dropdownMenu.classList.toggle('open');
+    };
+
+    function closeMenu() {
+      dropdownMenu.classList.remove('open');
+    };
+
+    function itemClickHandler(e) {
+      e.stopPropagation();
+      selectedItem.innerText = e.target.innerText;
+      items.forEach(item => item.classList.remove('active'));
+      e.target.classList.add('active');
+      closeMenu();
+    };
+  </script>
+</body>
+</html>
