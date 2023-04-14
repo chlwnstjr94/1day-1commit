@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./timer.css">
+  <title>Timer</title>
+</head>
+<body>
+  <nav><a href="#">Web Dev Creative</a></nav>
+  <div class="container">
+    <h1 id="headline">our website is almost ready</h1>
+    <div id="dountdown" class="countdown">
+      <ul>
+        <li><span id="days">00</span>days</li>
+        <li><span id="hours">00</span>hours</li>
+        <li class="separator">:</li>
+        <li><span id="minutes">00</span>minutes</li>
+        <li class="separator">:</li>
+        <li><span id="seconds">00</span>seconds</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="social_links">
+    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+    let daysEl = document.getElementById('days');
+    let hoursEl = document.getElementById('hours');
+    let minutesEl = document.getElementById('minutes');
+    let secondsEl = document.getElementById('seconds');
+
+    function countdownTimer() {
+      const countDownDate = new Date('04/18/2023').getTime();
+
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+  
+        daysEl.innerText = formatNumber(Math.floor(distance / day));
+        hoursEl.innerText = formatNumber(Math.floor((distance % day) / hour));
+        minutesEl.innerText = formatNumber(Math.floor((distance % hour) / minute));
+        secondsEl.innerText = formatNumber(Math.floor((distance % minute) / second));
+
+        if(distance < 0) {
+          document.getElementById('headline').innerText = 'our website is ready';
+          document.getElementById('countdown').style.display = 'none';
+
+          clearInterval(interval);
+        }
+      }, 1000);
+    };
+
+    function formatNumber(number) {
+      if(number < 10) {
+        return '0' + number;
+      }
+
+      return number;
+    }
+
+    countdownTimer();
+  </script>
+</body>
+</html>
