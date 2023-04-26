@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./menu-bar.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <title>Navigation Menu Bar</title>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <li class="item active">
+        <span><ion-icon name="home-outline"></ion-icon></span>
+      </li>
+      <li class="item">
+        <span><ion-icon name="people-outline"></ion-icon></span>
+      </li>
+      <li class="item">
+        <span><ion-icon name="notifications-outline"></ion-icon></span>
+      </li>
+      <li class="item">
+        <span><ion-icon name="storefront-outline"></ion-icon></span>
+      </li>
+      <li class="item">
+        <span><ion-icon name="videocam-outline"></ion-icon></span>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const bar = document.querySelector('.container');
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        items.forEach(item => {
+          item.classList.remove('active');
+        });
+        item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
