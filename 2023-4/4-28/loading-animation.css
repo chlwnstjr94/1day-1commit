@@ -1,0 +1,50 @@
+body {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  height: 400px;
+  width: 400px;
+  border-radius: 9px;
+  padding: 30px;
+  box-shadow: 10px 10px 0 -1px rgba(0, 0, 0, 0.23);
+}
+
+.loading-shadow {
+  background: #bcbcbc;
+  min-height: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-section {
+  background: #bcbcbc;
+  min-height: 30px;
+  position: relative;
+}
+
+.loading-shadow::before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: translateX(-100%);
+  animation: loading 0.7s infinite;
+  background: linear-gradient(to right, transparent, #d3d3d3, transparent);
+}
+
+@keyframes loading {
+  100% {
+    transform: translate(100%);
+  }
+}
+
+.image-section {
+  min-height: 200px;
+}
