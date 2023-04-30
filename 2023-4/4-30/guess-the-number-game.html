@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./guess-the-number-game.css">
+  <title>Guess The Number Game</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Guess The Number</h1>
+    <h3>Attempts left: <span id="attempts_left">5</span></h3>
+
+    <div class="buttons">
+      <button id="num_btn">1</button>
+      <button id="num_btn">2</button>
+      <button id="num_btn">3</button>
+      <button id="num_btn">4</button>
+      <button id="num_btn">5</button>
+      <button id="num_btn">6</button>
+      <button id="num_btn">7</button>
+      <button id="num_btn">8</button>
+      <button id="num_btn">9</button>
+      <button id="num_btn">10</button>
+    </div>
+  </div>
+
+  <script>
+    const guessBtns = document.querySelectorAll('#num_btn');
+    const attemptsLeftEl = document.getElementById('attempts_left');
+    let randomNumber = getRandomNumber();
+    let guessNumbers = [];
+    const attempts = 5;
+
+    guessBtns.forEach(btn => {
+      btn.addEventListener('click', checkNumber);
+    });
+
+    function checkNumber(e) {
+      const clickedNumber = parseInt(e.target.innerText);
+
+      if(clickedNumber === randomNumber) {
+        // alert('You win');
+        gameWin(e.target);
+      } else {
+        // alert('You Lost');
+        if(!guessNumbers.includes(clickedNumber)) {
+          guessNumbers.push(clickedNumber);
+          e.target.classList.add('wrong');
+          updateAttempts();
+          checkGameOver();
+        }
+      };
+    };
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 10) + 1;
+    };
+
+    function updateAttempts() {
+      attemptsLeftEl.innerText = attempts - guessNumbers.length;
+    };
+
+    function checkGameOver() {
+      setTimeout(() => {
+        if(guessNumbers.length >= attempts) {
+          alert('You Lose');
+          restartGame();
+        };
+      }, 200);
+    };
+
+    function gameWin(btn) {
+      btn.classList.add('correct');
+      setTimeout(() => {
+        alert('You Win');
+        restartGame();
+      }, 200);
+    };
+
+    function restartGame() {
+      randomNumber = getRandomNumber();
+      guessNumbers = [];
+      updateAttempts();
+      guessBtns.forEach(btn => {
+        btn.classList.remove('correct');
+        btn.classList.remove('wrong');
+      })
+    }
+  </script>
+</body>
+</html>
