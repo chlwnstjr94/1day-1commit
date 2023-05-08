@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./loading-animation.css">
+  <title>Loading Animation</title>
+</head>
+<body>
+  <div class="container">
+    <div class="image-section loading-shadow"></div>
+    <h1 class="title loading-shadow"></h1>
+    <p class="paragraph loading-shadow"></p>
+  </div>
+
+  <script>
+    const ImageSection = document.querySelector('.image-section');
+    const title = document.querySelector('.title');
+    const paragraph = document.querySelector('.paragraph');
+
+    setTimeout(() => {
+      const img = document.createElement('img');
+
+      img.setAttribute('src', './img.jpg');
+      ImageSection.appendChild(img);
+
+      title.textContent = "Rahmanullah";
+
+      paragraph.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sequi esse dignissimos porro aspernatur magni, possimus architecto, rem laborum nam voluptas pariatur suscipit atque cupiditate.";
+
+      ImageSection.classList.remove('loading-shadow');
+      title.classList.remove('loading-shadow');
+      paragraph.classList.remove('loading-shadow');
+    }, 4000);
+  </script>
+</body>
+</html>
