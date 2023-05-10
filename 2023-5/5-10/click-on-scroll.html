@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./click-on-scroll.css">
+  <title>Click On Scroll</title>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">Active Link</a>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#service">Service</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
+  </header>
+  <section class="home" id="home">
+    <h2 class="all-heading">Home <span>Section</span></h2>
+  </section>
+  <section class="about" id="about">
+    <h2 class="all-heading">About <span>Section</span></h2>
+  </section>
+  <section class="service" id="service">
+    <h2 class="all-heading">Service <span>Section</span></h2>
+  </section>
+  <section class="portfolio" id="portfolio">
+    <h2 class="all-heading">Portfolio <span>Section</span></h2>
+  </section>
+  <section class="contact" id="contact">
+    <h2 class="all-heading">Contact <span>Section</span></h2>
+  </section>
+
+  <script>
+    let section = document.querySelectorAll('section');
+    let navLink = document.querySelectorAll('header nav a');
+    window.onscroll = () => {
+      section.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+        if(top > offset && top < offset + height) {
+          navLink.forEach(links => {
+            links.classList.remove('active');
+            document.querySelector('header nav a[href*='+id+']').classList.add('active');
+          });
+        };
+      });
+    };
+  </script>
+</body>
+</html>
