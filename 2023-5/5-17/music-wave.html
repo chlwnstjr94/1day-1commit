@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./music-wave.css">
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <title>Music Wave</title>
+</head>
+<body>
+  <div class="container">
+    <div class="music">
+      <p>Artist: NEFFEX</p>
+      <h1>Good Day (Wake Up)</h1>
+      <div class="track">
+        <img src="./play.png" id="playBtn">
+        <div id="waveform"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let playBtn = document.getElementById('playBtn');
+
+    var wavesurfer = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: '#ddd',
+      progressColor: '#ff006c',
+      barWidth: 4,
+      responsive: true,
+      height: 90,
+      barRadius: 4
+    });
+
+    wavesurfer.load('./Good-Day-Wake-Up-NEFFEX.mp3');
+
+    playBtn.onclick = function() {
+      wavesurfer.playPause();
+      if(playBtn.src.includes('play.png')) {
+        playBtn.src = './pause.png';
+      } else {
+        playBtn.src = './play.png';
+      };
+    };
+
+    wavesurfer.on('finish', function() {
+      playBtn.src = './play.png';
+      wavesurfer.stop();
+    });
+  </script>
+</body>
+</html>
