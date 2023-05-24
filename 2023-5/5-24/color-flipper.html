@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./color-flipper.css">
+  <title>Color Flipper</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Background: <span id="color">#00ff00</span>;</h2>
+    <button class="btn" id="btn">Generate</button>
+  </div>
+
+  <script>
+    const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "A", "B", "C", "D", "E", "F"];
+    const btn = document.getElementById('btn');
+    const color = document.getElementById('color');
+    const container = document.querySelector('.container');
+
+    btn.addEventListener('click', function() {
+      let hexColor = "#";
+      for(let i = 0; i < 6; i++) {
+        hexColor += hex[getRandomeNumber()];
+      };
+      color.textContent = hexColor;
+      container.style.transition = "0.3s";
+      container.style.borderColor = hexColor;
+      container.style.boxShadow = "0 0 20px"+hexColor;
+      color.style.color = hexColor;
+      btn.style.borderColor = hexColor;
+    })
+
+    function getRandomeNumber() {
+      return Math.floor(Math.random()*hex.length);
+    }
+  </script>
+</body>
+</html>
