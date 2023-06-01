@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./increment-counters.css">
+  <title>Increment Counters</title>
+</head>
+<body>
+  <h1>Increment Counters</h1>
+  <div class="container">
+    <div class="counter_wrapper">
+    <ion-icon name="logo-facebook" style="color: var(--color-facebook)"></ion-icon>
+      <div class="counter" data-target="6200">0</div>
+      <span>Friends</span>
+    </div>
+    <div class="counter_wrapper">
+    <ion-icon name="logo-youtube" style="color: var(--color-youtube)"></ion-icon>
+      <div class="counter" data-target="36322">0</div>
+      <span>Subscribers</span>
+    </div>
+    <div class="counter_wrapper">
+    <ion-icon name="logo-instagram" style="color: var(--color-instagram)"></ion-icon>
+      <div class="counter" data-target="8500">0</div>
+      <span>Followers</span>
+    </div>
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+      const incrementCounter = () => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const currentNumber = parseInt(counter.innerText);
+
+        const Increment = target / 300;
+
+        if(currentNumber < target) {
+          counter.innerText = `${Math.ceil(currentNumber + Increment)}`;
+          setTimeout(incrementCounter, 1);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      incrementCounter();
+    })
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
