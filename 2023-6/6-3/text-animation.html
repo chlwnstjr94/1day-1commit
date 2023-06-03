@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./text-animation.css">
+  <title>Text Animation</title>
+</head>
+<body>
+  <div class="container">
+    <span class="text-item first-text">I'm a</span>
+    <span class="text-item second-text">Youtuber</span>
+  </div>
+
+  <script>
+    const SecondText = document.querySelector('.second-text');
+    const TextFunction = () => {
+      setTimeout(() => {
+        SecondText.innerHTML = "Youtuber";
+      }, 0);
+      setTimeout(() => {
+        SecondText.innerHTML = "Freelancer";
+      }, 4000);
+      setTimeout(() => {
+        SecondText.innerHTML = "Web Developer";
+      }, 8000);
+    };
+
+    TextFunction();
+    setInterval(TextFunction, 12000);
+  </script>
+</body>
+</html>
