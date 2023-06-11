@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./boxes-animation.css">
+  <title>3D Boxes Animation</title>
+</head>
+<body>
+  <div id="boxes" class="boxes"></div>
+
+  <script>
+    const boxes = document.getElementById('boxes');
+
+    function renderBoxes() {
+      for (let y = 0; y < 4; y++) {
+        for (let x = 0; x < 4; x++) {
+          const boxEl = document.createElement('div');
+          boxEl.classList.add('box');
+          boxEl.style.backgroundPosition = `-${x * 125}px -${y * 125}px`
+          boxes.appendChild(boxEl);
+        };
+      };
+    };
+
+    renderBoxes();
+  </script>
+</body>
+</html>
