@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #e3f0ff, #fafcff);
+}
+
+.container {
+  width: 70%;
+  height: 85vh;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 25px 40px #1687d933;
+}
+
+.item-box {
+  display: flex;
+  margin: 20px 40px;
+}
+
+.container .header {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: 15%;
+  align-items: center;
+}
+
+.header .heading {
+  font-size: 16px;
+}
+
+.header .action {
+  font-size: 14px;
+  color: #e44c4c;
+  cursor: pointer;
+  font-weight: 600;
+  border-bottom: 1px solid #e44c4c;
+}
+
+.addtocart {
+  box-shadow: 0 0 2px #2f3841;
+  height: 400px;
+  width: 300px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 25px;
+}
+
+img {
+  height: 150px;
+}
+
+h2 {
+  margin-top: 10px;
+}
+
+.btn {
+  position: relative;
+  padding: 10px;
+  width: 90%;
+  height: 45px;
+  margin-top: 10px;
+  background: #e44c4c;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #e44c5c;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn .fa-cart-shopping {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -10%;
+  font-size: 2em;
+  transform: translate(-50%, -50%);
+}
+
+.btn.clicked .fa-cart-shopping {
+  animation: cart 1.5s ease-in-out forwards;
+}
+
+@keyframes cart {
+  0% {
+    left: -10%;
+  }
+  40%, 60% {
+    left: 50%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+.btn .fa-box {
+  position: absolute;
+  z-index: 3;
+  top: -20%;
+  left: 52%;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
+}
+
+.btn.clicked .fa-box {
+  animation: box 1.5s ease-in-out forwards;
+}
+
+@keyframes box {
+  0%, 40% {
+    top: -20%;
+  }
+  60% {
+    top: 40%;
+    left: 52%;
+  }
+  100% {
+    top: 40%;
+    left: 112%;
+  }
+}
+
+.addCart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
+}
+
+.btn span.addCart {
+  opacity: 1;
+}
+
+.btn.clicked span.addCart {
+  animation: txt1 1.5s ease-in-out forwards;
+}
+
+@keyframes txt1 {
+  0% {
+    opacity: 1;
+  }
+  20%, 100% {
+    opacity: 0;
+  }
+}
+
+.btn span.added {
+  opacity: 0;
+  font-size: 1.2em;
+}
+
+.btn.clicked span.added {
+  animation: txt2 1.5s ease-in-out forwards;
+}
+
+@keyframes txt2 {
+  0%, 80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

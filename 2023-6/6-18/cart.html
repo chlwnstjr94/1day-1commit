@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cart.css">
+  <script src="https://kit.fontawesome.com/e48faf5860.js" crossorigin="anonymous"></script>
+  <title>Cart</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h3 class="heading">Shopping Cart</h3>
+      <h5 class="action">Remove all</h5>
+    </div>
+    <div class="item-box">
+      <div class="addtocart">
+        <div class="image">
+          <img src="mic.jpg" alt="">
+        </div>
+        <h2>Mic</h2>
+        <h1>$50.00</h1>
+        <button class="btn">
+          <i class="fas fa-cart-shopping"></i>
+          <i class="fas fa-box"></i>
+          <span class="addCart">Add to cart</span>
+          <span class="added">Added</span>
+        </button>
+      </div>
+      <div class="addtocart">
+        <div class="image">
+          <img src="tab.jpg" alt="">
+        </div>
+        <h2>Tab</h2>
+        <h1>$550.00</h1>
+        <button class="btn">
+          <i class="fas fa-cart-shopping"></i>
+          <i class="fas fa-box"></i>
+          <span class="addCart">Add to cart</span>
+          <span class="added">Added</span>
+        </button>
+      </div>
+      <div class="addtocart">
+        <div class="image">
+          <img src="usb.jpg" alt="">
+        </div>
+        <h2>USB</h2>
+        <h1>$50.00</h1>
+        <button class="btn">
+          <i class="fas fa-cart-shopping"></i>
+          <i class="fas fa-box"></i>
+          <span class="addCart">Add to cart</span>
+          <span class="added">Added</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.querySelectorAll('.btn');
+    btn.forEach(button => {
+      button.addEventListener('click', btnFunction);
+    });
+    function btnFunction() {
+      let button = this;
+      button.classList.add('clicked');
+    };
+  </script>
+</body>
+</html>
