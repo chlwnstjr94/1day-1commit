@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0turn;
+  inherits: true;
+}
+
+:root {
+  --angle: 0turn;
+  --dark-color: rgb(252, 196, 94);
+  --light-color: rgba(252, 196, 94, 0.3);
+}
+
+body {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  font-size: 3rem;
+  border: 8px solid var(--light-color);
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.container:hover {
+  border-image: conic-gradient(
+    from var(--angle),
+    var(--light-color),
+    var(--dark-color) 0.1turn,
+    var(--dark-color) 0.15turn,
+    var(--light-color) 0.25turn
+  ) 30;
+  animation: borderAnim 1.5s linear infinite;
+}
+
+@keyframes borderAnim {
+  100% {
+    --angle: 1turn;
+  }
+}
