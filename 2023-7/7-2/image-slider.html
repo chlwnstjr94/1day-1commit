@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="image-slider.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Image Slider</title>
+</head>
+<body>
+  <div class="container">
+    <div class="image-section">
+      <img src="background1.jpg">
+      <img src="background2.jpg">
+      <img src="background3.jpg">
+      <img src="background4.jpg">
+    </div>
+    <div class="direction">
+      <i class='bx bx-chevron-left' onclick="Side_Slide(-1)"></i>
+      <i class='bx bx-chevron-right' onclick="Side_Slide(1)"></i>
+    </div>
+    <div class="counter">
+      <span onclick="Slider_btn(1)"></span>
+      <span onclick="Slider_btn(2)"></span>
+      <span onclick="Slider_btn(3)"></span>
+      <span onclick="Slider_btn(4)"></span>
+    </div>
+  </div>
+
+  <script>
+    let indexvalue = 1;
+
+    ShowSlider(indexvalue);
+
+    function Slider_btn(n) {
+      ShowSlider(indexvalue = n);
+    };
+
+    function Side_Slide(n) {
+      ShowSlider(indexvalue += n);
+    };
+
+    function ShowSlider(n) {
+      let i = 1;
+      const images = document.querySelectorAll('img');
+      const sliders = document.querySelectorAll('.counter span');
+      if (n > images.length) {
+        indexvalue = 1;
+      }
+      if (n < 1) {
+        indexvalue = images.length;
+      }
+      for(i = 0; i < images.length; i++) {
+        images[i].style.display = "none";
+      }
+      for(i = 0; i < images.length; i++) {
+        sliders[i].style.background = "#222";
+      }
+      images[indexvalue - 1].style.display = "block";
+      sliders[indexvalue - 1].style.background = "#fff";
+    }
+  </script>
+</body>
+</html>
