@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pagination.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Pagination</title>
+</head>
+<body>
+  <div class="container">
+    <button class="previewBtn" onclick="sideSlide(-1)"><i class='bx bx-left-arrow-alt'></i></button>
+    <div class="number">
+      <span onclick="btnSlide(1)">1</span>
+      <span onclick="btnSlide(2)">2</span>
+      <span onclick="btnSlide(3)">3</span>
+      <span onclick="btnSlide(4)">4</span>
+      <span onclick="btnSlide(5)">5</span>
+      <span onclick="btnSlide(6)">6</span>
+      <span onclick="btnSlide(7)">7</span>
+      <span onclick="btnSlide(8)">8</span>
+      <span onclick="btnSlide(9)">9</span>
+      <span onclick="btnSlide(10)">10</span>
+    </div>
+    <button class="previewBtn" onclick="sideSlide(1)"><i class='bx bx-right-arrow-alt'></i></button>
+  </div>
+
+  <script>
+    let indexValue = 1;
+    let spanNumber = document.querySelectorAll('.number span');
+    showColor(indexValue);
+
+    function btnSlide(n) {(showColor(indexValue = n))};
+    function sideSlide(n) {(showColor(indexValue += n))};
+    function showColor(n) {
+      let i;
+      if(n > spanNumber.length) {
+        indexValue = 1;
+      }
+      if(n < 1) {
+        indexValue = spanNumber.length;
+      }
+      for(i = 0; i < spanNumber.length; i++) {
+        spanNumber[i].style.background = "rgba(0, 0, 0, 0.3)";
+        spanNumber[i].style.transition = "0.2s";
+      }
+      spanNumber[indexValue - 1].style.background = "rgba(255, 0, 255)";
+    }
+
+    const btn = document.querySelectorAll('button');
+    btn.forEach(bt => {
+      bt.addEventListener('click', () => {
+        btn.forEach(bt => {
+          bt.classList.remove('active');
+        });
+        bt.classList.add('active');
+      })
+    })
+  </script>
+</body>
+</html>
