@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="video-playlist.css">
+  <title>Video Playlist</title>
+</head>
+<body>
+  <div class="container">
+    <div class="main-video">
+      <video src="video2.mp4" loop controls></video>
+      <span class="title-video">01.VIDEO NO 1</span>
+    </div>
+    <div class="video-list">
+      <div class="videoSection open">
+        <video src="video2.mp4" loop controls></video>
+        <span class="title-video">01.VIDEO NO 1</span>
+      </div>
+      <div class="videoSection">
+        <video src="video3.mp4" loop controls></video>
+        <span class="title-video">02.VIDEO NO 2</span>
+      </div>
+      <div class="videoSection">
+        <video src="video1.mp4" loop controls></video>
+        <span class="title-video">03.VIDEO NO 3</span>
+      </div>
+      <div class="videoSection">
+        <video src="video3.mp4" loop controls></video>
+        <span class="title-video">04.VIDEO NO 4</span>
+      </div>
+      <div class="videoSection">
+        <video src="video2.mp4" loop controls></video>
+        <span class="title-video">05.VIDEO NO 5</span>
+      </div>
+      <div class="videoSection">
+        <video src="video2.mp4" loop controls></video>
+        <span class="title-video">01.VIDEO NO 1</span>
+      </div>
+      <div class="videoSection">
+        <video src="video3.mp4" loop controls></video>
+        <span class="title-video">02.VIDEO NO 2</span>
+      </div>
+      <div class="videoSection">
+        <video src="video1.mp4" loop controls></video>
+        <span class="title-video">03.VIDEO NO 3</span>
+      </div>
+      <div class="videoSection">
+        <video src="video3.mp4" loop controls></video>
+        <span class="title-video">04.VIDEO NO 4</span>
+      </div>
+      <div class="videoSection">
+        <video src="video2.mp4" loop controls></video>
+        <span class="title-video">05.VIDEO NO 5</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mainVideo = document.querySelector('.main-video video');
+    const videoSection = document.querySelectorAll('.videoSection');
+    const title = document.querySelector('.title-video');
+    
+    videoSection.forEach(video => {
+      video.onclick = () => {
+        videoSection.forEach(videoSection => videoSection.classList.remove('open'));
+        video.classList.add('open');
+        if(video.classList.contains('open')) {
+          const source = video.children[0].getAttribute('src');
+          mainVideo.src = source;
+          const textor = video.children[1].innerHTML;
+          title.innerHTML = textor;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
