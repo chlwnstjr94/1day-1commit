@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="todo-list.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Todo List</title>
+</head>
+<body>
+  <div class="section">
+    <input type="text" id="text" placeholder="Write here.........">
+    <ul class="list"></ul>
+  </div>
+
+  <script>
+    let inputText = document.querySelector('#text');
+    let list = document.querySelector('.list');
+    inputText.addEventListener('keyup', function(e) {
+      if(e.key === 'Enter') {
+        addItem(this.value);
+        this.value;
+      };
+    });
+
+    let addItem = (inputText) => {
+      let listItem = document.createElement('li');
+      listItem.innerHTML = `${inputText}<p><i class='bx bx-x'></i></p>`;
+
+      listItem.addEventListener('click', () => {
+        listItem.classList.add('active');
+      });
+      listItem.querySelector('p').addEventListener('click', () => {
+        listItem.remove();
+      });
+      list.appendChild(listItem);
+    };
+
+
+  </script>
+</body>
+</html>
