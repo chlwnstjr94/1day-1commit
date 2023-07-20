@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="image-gallery.css">
+  <title>Image Gallery</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Image Gallery</h1>
+    <div class="masonry_grid"></div>
+  </div>
+
+  <script>
+    const data = [
+    {
+      id: 1,
+      img: 'https://images.unsplash.com/photo-1452570053594-1b985d6ea890?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    },
+    {
+      id: 2,
+      img: 'https://images.unsplash.com/photo-1470114716159-e389f8712fda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    },
+    {
+      id: 3,
+      img: 'https://images.unsplash.com/photo-1555511920-5d0d9834f549?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80',
+    },
+    {
+      id: 4,
+      img: 'https://images.unsplash.com/photo-1493236296276-d17357e28888?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80',
+    },
+    {
+      id: 5,
+      img: 'https://images.unsplash.com/photo-1612311683149-939135aa6afa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
+    },
+    {
+      id: 6,
+      img: 'https://images.unsplash.com/photo-1620694563886-c3a80ec55f41?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    },
+    {
+      id: 7,
+      img: 'https://images.unsplash.com/photo-1551668231-6a07c2b7d544?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1477&q=80',
+    },
+    {
+      id: 8,
+      img: 'https://images.unsplash.com/photo-1574068468668-a05a11f871da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80',
+    },
+    {
+      id: 9,
+      img: 'https://images.unsplash.com/photo-1583245122069-d7c702e4f1f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80',
+    },
+    {
+      id: 10,
+      img: 'https://images.unsplash.com/photo-1620588280212-bf1d2b23b112?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+    },
+    {
+      id: 11,
+      img: 'https://images.unsplash.com/photo-1490718720478-364a07a997cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    },
+    {
+      id: 12,
+      img: 'https://images.unsplash.com/photo-1575805774658-fdb9eeda71cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+    },
+  ];
+
+  const masonryGrid = document.querySelector('.masonry_grid');
+
+  data.forEach(item => {
+    const itemEl = document.createElement('div');
+    itemEl.classList.add('item');
+    itemEl.innerHTML = `<img src="${item.img}" />`;
+
+    masonryGrid.appendChild(itemEl);
+  })
+  </script>
+</body>
+</html>
