@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #dedddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  height: 400px;
+  width: 550px;
+  box-shadow: 0 0 10px #222;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  background: #eee;
+}
+
+.container .curved-shape {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #dedddd;
+  height: 100%;
+  width: 100%;
+  clip-path: circle(84% at 0 0);
+  z-index: -1;
+}
+
+.container .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content .image-section {
+  position: absolute;
+  left: 5%;
+  top: -24%;
+}
+
+img {
+  width: 250px;
+  scale: 0;
+  animation: showHide 1s ease forwards,
+  bounce 4s ease infinite;
+}
+
+@keyframes showHide {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-24px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-24px);
+  }
+}
+
+.content .image-section .drop-shadow {
+  height: 10px;
+  width: 220px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  left: 10%;
+  filter: blur(2px);
+  animation: showHide 1s ease forwards,
+  bounce1 4s ease infinite;
+}
+
+@keyframes bounce1 {
+  0% {
+    transform: translateY(24px);
+    scale: 0;
+  }
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(24px);
+    scale: 0;
+  }
+}
+
+.price-section {
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  text-align: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+    filter: blur(3px);
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+.price-section h2 {
+  font-size: 25px;
+  animation: slide 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.price-section .stars i {
+  color: #ff0000;
+  animation: slide 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: 1.2s;
+}
+
+.price-section h3 {
+  font-size: 20px;
+  margin-top: 5px;
+  animation: slide 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: 1.4s;
+}
+
+.price-section .btn {
+  padding: 5px;
+  height: 40px;
+  width: 140px;
+  outline: none;
+  border: 2px solid #222;
+  border-radius: 7px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  background: #dedddd;
+  letter-spacing: 1px;
+  cursor: pointer;
+  scale: 0.9;
+  transition: 0.4s;
+  animation: slide 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: 1.6s;
+}
+
+.btn:hover {
+  scale: 1;
+}
+
+p {
+  max-width: 300px;
+  font-size: 10px;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  animation: slide 0.5s ease forwards;
+  opacity: 0;
+  animation-delay: 1.8s;
+}
