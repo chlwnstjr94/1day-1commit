@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="spider-cursor.css">
+  <title>Spider Cursor</title>
+</head>
+<body>
+  <canvas id="nodes_network_field" width="500" height="500"></canvas>
+
+  <script>
+    let my_canvas = document.getElementById('nodes_network_field');
+    let canvas_x = my_canvas.getBoundingClientRect().left + window.scrollX;
+    let canvas_y = my_canvas.getBoundingClientRect().top + window.scrollY;
+    let ctx = my_canvas.getContext('2d');
+    let point_size = 5;
+    let node_dis_limit = 100;
+    let nodes = 100;
+    let points = [];
+
+    for(let i = 0; i <= nodes; i++) {
+      let point = new set_point_elm();
+      point.x = Math.floor(Math.random() * (480 - 0 + 1) + 10);
+      point.y = Math.floor(Math.random() * (480 - 0 + 1) + 10);
+      point.opacity = 0;
+      points.push([point]);
+    };
+
+    let point_a = new set_point_elm();
+    point_a.x = 250;
+    point_a.y = 250;
+
+    document.addEventListener('mousemove', function(e) {
+      ctx.clearRect(0, 0, my_canvas.width, my_canvas.height);
+
+      point_a.x = e.clientX - canvas_x;
+      point_a.y = e.clientY - canvas_y;
+
+      points.forEach(function(elm) {
+        let destination = get_my_rand();
+        elm[0].draw();
+        let dis_val = Math.sqrt((Math.pow((elm[0].x - point_a.x), 2)) + (Math.pow((elm[0].y - point_a.y), 2)));
+        if (dis_val.toFixed(2) <= node_dis_limit) {
+          point_a.node_opacity = node_dis_limit - dis_val.toFixed(2);
+          point_a.link_node(elm[0].x, elm[0].y);
+        };
+      });
+      point_a.draw();
+    });
+
+    function get_my_rand() {
+      let x = Math.floor(Math.random() * (480 - 0 + 1) + 10);
+      let y = Math.floor(Math.random() * (480 - 0 + 1) + 10);
+      return { 'x': x, 'y': y };
+    };
+
+    function set_point_elm() {
+      this.x = 0;
+      this.y = 0;
+      this.red = 255;
+      this.green = 255;
+      this.blue = 255;
+      this.opacity = 1;
+      this.node_opacity = 1;
+
+      this.draw = function() {
+        ctx.fillStyle = 'rgba('+this.red+', '+this.green+', '+this.blue+', '+this.opacity+')';
+        ctx.fillRect(this.x, this.y, point_size, point_size);
+      };
+      
+      this.link_node = function(p_two_x, p_two_y) {
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(255, 255, 255, '+this.node_opacity * 1.5 + '%)';
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(p_two_x, p_two_y);
+        ctx.stroke();
+      };
+    };
+  </script>
+</body>
+</html>
