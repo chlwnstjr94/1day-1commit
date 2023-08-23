@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="parallax-image.css">
+  <title>Parallax Image</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card" style="--img: url(img1.jpg);">
+      <h2>Image 01</h2>
+    </div>
+    <div class="card" style="--img: url(img2.jpg);">
+      <h2>Image 02</h2>
+    </div>
+  </div>
+
+  <script>
+    let cards = document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        let x = e.offsetX;
+        let y = e.offsetY;
+        let cardWidth = card.clientWidth;
+        let cardHeight = card.clientHeight;
+        let transX = (x - cardWidth/2);
+        let transY = (y - cardHeight/2);
+        card.style.transform = `translateX(${transX}px) translateY(${transY}px)`;
+        card.style.backgroundPositionX = -x/2 + 'px';
+        card.style.backgroundPositionY = -y/2 + 'px';
+      });
+      card.addEventListener('mouseout', (e) => {
+        card.style.transform = ``;
+        card.style.backgroundPositionX = '';
+        card.style.backgroundPositionY = '';
+      });
+    })
+  </script>
+</body>
+</html>
