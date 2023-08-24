@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+body {
+  background: #1d2741;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.showPopup {
+  height: 50px;
+  width: 170px;
+  color: #0f0;
+  font-size: 20px;
+  font-weight: 500;
+  background: transparent;
+  border: 2px solid #0f0;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.showPopup:hover {
+  box-shadow: 0 0 10px #0f0;
+}
+
+.popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  height: 280px;
+  width: 300px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 7px;
+  background: #1d2741;
+  padding: 0 30px 30px;
+  text-align: center;
+  transition: transform 0.4s;
+}
+
+.popUp.active {
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popUp ion-icon {
+  margin-top: -50px;
+  font-size: 80px;
+  background: #0f0;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.popUp h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 30px 0 10px;
+}
+
+.popUp .backBtn {
+  width: 100%;
+  height: 40px;
+  background: #0f0;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  margin-top: 10px;
+}

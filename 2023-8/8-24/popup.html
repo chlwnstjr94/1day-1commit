@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>PopUp</title>
+</head>
+<body>
+  <div class="container">
+    <button class="showPopup">Show PopUp</button>
+    <div class="popUp">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <h2>Thank You!</h2>
+      <p>Your details has been successfully submitted. Thanks!</p>
+      <button class="backBtn">OK</button>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script>
+    const showPopup = document.querySelector('.showPopup');
+    const backBtn = document.querySelector('.backBtn');
+    const popUp = document.querySelector('.popUp');
+    showPopup.addEventListener('click', () => {
+      popUp.classList.add('active');
+    });
+    backBtn.addEventListener('click', () => {
+      popUp.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
