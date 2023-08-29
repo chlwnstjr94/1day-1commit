@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="button-loading-animation.css">
+  <title>Button Loading Animation</title>
+</head>
+<body>
+  <button class="save-btn">Save Changes</button>
+
+  <script>
+    let save_btn = document.querySelector('.save-btn');
+
+    save_btn.onclick = function() {
+      this.innerHTML = '<div class="loader"></div>';
+      setTimeout(() => {
+        this.innerHTML = "Changes Saved";
+        this.style = "background: #f1f5f4; color: #333; pointer-events: none;";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
