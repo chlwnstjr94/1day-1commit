@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="text-effects.css">
+  <title>Text Hover Effects</title>
+</head>
+<body>
+  <h3 class="title">Text Hover</h3>
+
+  <script>
+    const title = document.querySelector('.title');
+
+    title.innerHTML = title.innerHTML.split('').map((letters, i) => 
+      `<span style="transition-delay: ${i * 40}ms; filter: hue-rotate(${i * 30}deg);">${letters}</span>`
+    ).join('');
+  </script>
+</body>
+</html>
