@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <link rel="stylesheet" href="image-slider.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Image Slider</title>
+</head>
+<body>
+  <div class="container">
+    <div class="slider">
+      <div class="item" style="background-image: url(background1.jpg);"></div>
+      <div class="item" style="background-image: url(background2.jpg);"></div>
+      <div class="item" style="background-image: url(background3.jpg);"></div>
+      <div class="item" style="background-image: url(background4.jpg);"></div>
+      <div class="item" style="background-image: url(background5.jpg);"></div>
+      <div class="item" style="background-image: url(background6.jpg);"></div>
+    </div>
+    <div class="slider-btns">
+      <button class="prev"><i class='bx bx-left-arrow-alt'></i></button>
+      <button class="next"><i class='bx bx-right-arrow-alt'></i></button>
+    </div>
+  </div>
+
+  <script>
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    const slider = document.querySelector('.slider');
+
+    nextBtn.addEventListener('click', () => {
+      const item = document.querySelectorAll('.item');
+      slider.appendChild(item[0]);
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      const item = document.querySelectorAll('.item');
+      slider.prepend(item[item.length - 1]);
+    });
+  </script>
+</body>
+</html>
