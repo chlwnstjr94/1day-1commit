@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="random-color-generator.css">
+  <title>Random Color Generator</title>
+</head>
+<body>
+  <div class="title">Random Color Generator</div>
+  <div class="rgbBox">
+
+  </div>
+  <div class="btns">
+    <button id="red">R (255)</button>
+    <button id="green">G (255)</button>
+    <button id="blue">B (255)</button>
+  </div>
+  <div>
+    <button class="generate" onclick="generateRandomColor()">
+      Generate
+    </button>
+  </div>
+
+  <script>
+    const resultEl = document.querySelector('.rgbBox');
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 255) + 1;
+    };
+
+    function generateRandomColor() {
+      const redEl = document.getElementById('red');
+      const greenEl = document.getElementById('green');
+      const blueEl = document.getElementById('blue');
+      const red = getRandomNumber();
+      const green = getRandomNumber();
+      const blue = getRandomNumber();
+
+      resultEl.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      redEl.innerHTML = `R (${red})`;
+      greenEl.innerHTML = `G (${green})`;
+      blueEl.innerHTML = `B (${blue})`;
+    };
+  </script>
+</body>
+</html>
