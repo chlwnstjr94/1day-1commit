@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="loading-blur.css">
+  <title>Loading Blur Effects</title>
+</head>
+<body>
+  <div class="container">
+    <img src="background.jpg">
+    <span class="number">0</span>
+  </div>
+
+  <script>
+    const number = document.querySelector('.number');
+    const image = document.querySelector('img');
+    let start = 0;
+    const maxValue = 100;
+    const loader = () => {
+      if(start < maxValue) {
+        start++;
+        number.textContent = start+'%';
+        const opacity = start / maxValue;
+        image.style.opacity = opacity;
+        image.style.filter = `blur(${10 - 10 * opacity}px)`;
+      } else {
+        clearInterval(callLoader);
+        number.textContent = '';
+      }
+    };
+
+    const callLoader = setInterval(loader, 60);
+  </script>
+</body>
+</html>
