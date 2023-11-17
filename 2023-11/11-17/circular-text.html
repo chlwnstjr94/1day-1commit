@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="circular-text.css">
+  <title>Circular Text</title>
+</head>
+<body>
+  <h1 id="text">Circular-text-effect-</h1>
+
+  <script>
+    const text = document.getElementById('text');
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+    const element = document.querySelectorAll('span');
+
+    for(let i = 1; i < element.length; i++) {
+      element[i].style.transform = 'rotate('+i*16.5+'deg)';
+    };
+  </script>
+</body>
+</html>
