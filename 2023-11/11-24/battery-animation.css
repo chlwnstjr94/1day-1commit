@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #282833;
+}
+
+.battery {
+  height: 110px;
+  width: 225px;
+  border: 8px solid #fff;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 12px;
+}
+
+.battery::before {
+  content: '';
+  position: absolute;
+  margin: auto;
+  height: 55px;
+  width: 20px;
+  background-color: #fff;
+  right: -25px;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 7px 7px 0;
+}
+
+.battery::after {
+  content: '';
+  position: absolute;
+  height: 80px;
+  width: 40px;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 50px 0 transparent,
+  100px 0 transparent,
+  150px 0 transparent;
+  -webkit-animation: charge 4s infinite;
+  animation: charge 4s infinite;
+}
+
+@-webkit-keyframes charge {
+  22% {
+    box-shadow: 50px 0 transparent,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  25% {
+    box-shadow: 50px 0 #fff,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  47% {
+    box-shadow: 50px 0 #fff,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  50% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 transparent;
+  }
+  72% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 transparent;
+  }
+  75% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 #fff;
+  }
+  95% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 #fff;
+  }
+}
+
+@keyframes charge {
+  22% {
+    box-shadow: 50px 0 transparent,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  25% {
+    box-shadow: 50px 0 #fff,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  47% {
+    box-shadow: 50px 0 #fff,
+    100px 0 transparent,
+    150px 0 transparent;
+  }
+  50% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 transparent;
+  }
+  72% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 transparent;
+  }
+  75% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 #fff;
+  }
+  95% {
+    box-shadow: 50px 0 #fff,
+    100px 0 #fff,
+    150px 0 #fff;
+  }
+}
