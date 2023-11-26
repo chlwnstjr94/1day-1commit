@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="toast-notification.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Toast Notification</title>
+</head>
+<body>
+  <div class="container">
+    <div class="buttons">
+      <button onclick="showPop(successMsg);">Successs</button>
+      <button onclick="showPop(errorMsg);">Error</button>
+      <button onclick="showPop(invalidMsg);">Invalid</button>
+    </div>
+    <div id="toastBar"></div>
+  </div>
+
+  <script>
+    let toastBar = document.querySelector('#toastBar');
+    let successMsg = `<i class="fa-solid fa-circle-check"></i>Successfully Submitted.`;
+    let errorMsg = `<i class="fa-solid fa-circle-exclamation"></i>Please fix the error!`;
+    let invalidMsg = `<i class="fa-solid fa-circle-xmark"></i>Invalid input , check it again.`;
+
+    function showPop(msg) {
+      let toast = document.createElement('div');
+      toast.innerHTML = msg;
+      toast.classList.add('toast');
+      toastBar.appendChild(toast);
+
+      if(msg.includes('error')) {
+        toast.classList.add('error');
+      }
+      if(msg.includes('Invalid')) {
+        toast.classList.add('invalid');
+      }
+      setTimeout(() => {
+        toast.remove();
+      }, 6000);
+    };
+  </script>
+</body>
+</html>

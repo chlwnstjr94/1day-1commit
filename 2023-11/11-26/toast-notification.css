@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #141415;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container button {
+  width: 120px;
+  height: 40px;
+  background: #0f0;
+  border: 2px solid #0f0;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+button:nth-child(2) {
+  background: #f00;
+  border: 2px solid #f00;
+}
+
+button:nth-child(3) {
+  background: yellow;
+  border: 2px solid yellow;
+}
+
+#toastBar {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-weight: 500;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  font-size: 18px;
+}
+
+.toast {
+  width: 400px;
+  height: 80px;
+  background: #fff;
+  color: #10162a;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  border-left: 6px solid #0f0;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.toast::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background: #0f0;
+  animation: progressBar 5s linear forwards;
+}
+
+.toast.error::before {
+  background: #f00;
+}
+
+.toast.invalid::before {
+  background: yellow;
+}
+
+@keyframes progressBar {
+  100% {
+    width: 0;
+  }
+}
+
+.toast.error {
+  border-left: 6px solid #f00;
+}
+
+.toast.invalid {
+  border-left: 6px solid yellow;
+}
+
+.toast i {
+  font-size: 35px;
+  margin: 0 20px;
+  color: #0f0;
+}
+
+.toast.error i {
+  color: #f00;
+}
+
+.toast.invalid i {
+  color: yellow;
+}
