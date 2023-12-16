@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e8e8e8;
+}
+
+.content {
+  position: relative;
+}
+
+.content h2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 15em;
+}
+
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 3px #333;
+  filter: blur(3px);
+}
+
+.content h2:nth-child(3) {
+  color: #fff6;
+  filter: drop-shadow(0 15px 15px #fff);
+  z-index: 1;
+  text-shadow: -15px 15px 15px rgba(0, 0, 0, 0.2),
+  15px -15px 15px rgba(255, 255, 255, 0.2);
+}
+
+.content h2:nth-child(2) {
+  color: #03a9f4;
+  z-index: 2;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%, 100% {
+    clip-path: polygon(0% 45%, 4% 43%, 9% 41%, 14% 41%, 19% 41%, 24% 41%, 30% 45%, 32% 48%, 35% 51%, 40% 55%, 43% 56%, 48% 58%, 53% 59%, 60% 63%, 67% 63%, 76% 60%, 82% 58%, 88% 55%, 91% 54%, 95% 51%, 100% 49%, 100% 100%, 0% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 68%, 4% 64%, 8% 63%, 13% 64%, 16% 66%, 21% 68%, 25% 70%, 32% 71%, 37% 71%, 42% 70%, 47% 67%, 51% 64%, 55% 61%, 59% 57%, 62% 54%, 67% 50%, 72% 48%, 77% 45%, 82% 43%, 88% 40%, 93% 39%, 98% 38%, 100% 36%, 100% 100%, 0% 100%);
+  }
+}
