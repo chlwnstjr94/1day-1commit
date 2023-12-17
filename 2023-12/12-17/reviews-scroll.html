@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="reviews-scroll.css">
+  <title>Reviews Scroll</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js" integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js" integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+  <section class="s1">
+    <p>AMAZING</p>
+  </section>
+
+  <section class="reviews">
+    <p class="rtitle">REVIEWS</p>
+    <div class="review-wrp">
+      <div class="review rl">
+        <div class="rhead">
+          <div class="title">JOHN</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="content">
+          "This designer's attention to detail and creativity are unmatched. Their work is consistently stunning and impactful."
+        </div>
+      </div>
+
+      <div class="review rr">
+        <div class="rhead">
+          <div class="title">JOHN</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="content">
+          "This designer's attention to detail and creativity are unmatched. Their work is consistently stunning and impactful."
+        </div>
+      </div>
+
+      <div class="review rl">
+        <div class="rhead">
+          <div class="title">JOHN</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="content">
+          "This designer's attention to detail and creativity are unmatched. Their work is consistently stunning and impactful."
+        </div>
+      </div>
+
+      <div class="review rr">
+        <div class="rhead">
+          <div class="title">JOHN</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+        <div class="content">
+          "This designer's attention to detail and creativity are unmatched. Their work is consistently stunning and impactful."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s2">
+    <p>AMAZING</p>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.reviews',
+        start: 'top 40%',
+        end: 'bottom top',
+        scrub: 1,
+      }
+    });
+
+    tl.fromTo('.rl', {y: '350%'}, {y: '-150%'}, 0);
+    tl.fromTo('.rr', {y: '300%'}, {y: '-50%'}, 0);
+
+    gsap.fromTo('.rtitle', {x: '100%'}, {x: '-120%', scrollTrigger: {
+      trigger: '.rtitle',
+      start: 'center center',
+      end: 'bottom center',
+      endTrigger: '.reviews',
+      pin: true,
+      scrub: 1,
+    }}, 0);
+  </script>
+</body>
+</html>
