@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="scroll-animation.css">
+  <title>Scroll Animation</title>
+</head>
+<body>
+  <section>
+    <div class="slide" id="slide1"></div>
+    <div class="slide" id="slide2"></div>
+  </section>
+  <h2>Javascript Scroll Animation</h2>
+
+  <script>
+    let slide1 = document.getElementById('slide1');
+    let slide2 = document.getElementById('slide2');
+    window.addEventListener('scroll', function() {
+      slide1.style.left = window.pageYOffset+'px';
+      slide2.style.left = - window.pageYOffset+'px';
+    });
+  </script>
+</body>
+</html>
