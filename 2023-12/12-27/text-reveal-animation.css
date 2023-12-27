@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --bg: #ebe6dc;
+  --text: #b5a789;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 19rem;
+  letter-spacing: 0.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  border-radius: 0.5rem;
+  object-fit: cover;
+  min-height: 18rem;
+  max-width: 20rem;
+  margin: 0 1.5rem;
+}
+
+.i3 img,
+.i4 img {
+  width: 10rem;
+}
+
+.text span {
+  position: relative;
+}
+
+hr {
+  width: 80%;
+  margin: 0 10%;
+  box-sizing: border-box;
+  color: rgba(196, 187, 166, 0.3);
+}
+
+.imgWrap {
+  overflow: hidden;
+  border-radius: 1rem;
+  height: 15rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2rem;
+  position: relative;
+}
+
+.imgWrap.center {
+  width: 0;
+  animation: openCenterImage 0.9s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.imgWrap.small {
+  width: 10rem;
+}
+
+.text span {
+  position: relative;
+}
+
+.text span::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom;
+  animation: revealCharacter 2.4s forwards;
+  animation-timing-function: cubic-bezier(0.12, 0.76, 0.09, 0.96);
+}
+
+.text span:nth-child(odd)::after {
+  animation-delay: 0.7s;
+}
+
+.text span:nth-child(5)::after {
+  animation-delay: 0.6s;
+}
+
+.text span:nth-child(7)::after {
+  animation-delay: 1s;
+}
+
+.text span:nth-child(9)::after {
+  animation-delay: 0.3s;
+}
+
+.text span:nth-child(3)::after {
+  animation-delay: 0.4s;
+}
+
+.text span:nth-child(6)::after {
+  animation-delay: 0.1s;
+}
+
+.text span:nth-child(10)::after {
+  animation-delay: 0.5s;
+}
+
+.text span:nth-child(1)::after {
+  animation-delay: 1.1s;
+}
+
+.text span:nth-child(2)::after {
+  animation-delay: 1.2s;
+}
+
+.text span:nth-child(4)::after {
+  animation-delay: 1.3s;
+}
+
+.text span:nth-child(8)::after {
+  animation-delay: 1.4s;
+}
+
+.text span:nth-child(11)::after {
+  animation-delay: 0.7s;
+}
+
+.text span:nth-child(12)::after {
+  animation-delay: 0.8s;
+}
+
+.text span:nth-child(13)::after {
+  animation-delay: 1.5s;
+}
+
+.text span:nth-child(14)::after {
+  animation-delay: 0.9s;
+}
+
+.text span:nth-child(15)::after {
+  animation-delay: 1.1s;
+}
+
+.text span:nth-child(16)::after {
+  animation-delay: 1.4s;
+}
+
+.text span:nth-child(17)::after {
+  animation-delay: 1.2s;
+}
+
+.text span:nth-child(18)::after {
+  animation-delay: 1s;
+}
+
+@keyframes revealCharacter {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes openCenterImage {
+  100% {
+    width: 20rem;
+  }
+}
+
+@keyframes zoomImage {
+  0% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+img {
+  animation: zoomImage 2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.imgWrap:not(.center)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 99;
+  background: var(--bg);
+  transform-origin: left;
+  animation: hideHorizontally 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+.imgWrap:not(.center)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 99;
+  background: var(--bg);
+  transform-origin: right;
+  animation: hideHorizontally 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes hideHorizontally {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+.i1::before,
+.i1::after,
+.i1 img {
+  animation-delay: 1s !important;
+}
+
+.i2::before,
+.i2::after,
+.i2 img {
+  animation-delay: 1.5s !important;
+}
+
+.i3::before,
+.i3::after,
+.i3 img {
+  animation-delay: 1.2s !important;
+}
+
+.i4::before,
+.i4::after,
+.i4 img {
+  animation-delay: 0.8s !important;
+}
