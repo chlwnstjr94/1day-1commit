@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="search-bar.css">
+  <title>Search Bar</title>
+</head>
+<body>
+  <div class="container">
+    <input type="search" id="color-input" class="color-search" placeholder="#0081CB or Blue" autofocus>
+  </div>
+
+  <script>
+    let colorInput = document.getElementById('color-input');
+    document.body.style.background = '#0081cb';
+    colorInput.addEventListener('keyup', function(e) {
+      document.body.style.background = e.target.value;
+    });
+  </script>
+</body>
+</html>
