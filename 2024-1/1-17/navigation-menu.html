@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="navigation-menu.css">
+  <title>Navigation Menu</title>
+</head>
+<body>
+  <ul>
+    <li><a href="#">Men</a><img class="image" src="men.jpg"></li>
+    <li><a href="#">Women</a><img class="image" src="women.jpg"></li>
+    <li><a href="#">Kids</a><img class="image" src="kids.jpg"></li>
+    <li><a href="#">Mobiles</a><img class="image" src="mobiles.jpg"></li>
+    <li><a href="#">Watch</a><img class="image" src="watch.jpg"></li>
+  </ul>
+
+  <script>
+    let image = document.querySelectorAll('.image');
+    function showImage(e) {
+      for(let i = 0; i < image.length; i++) {
+        x = e.pageX;
+        y = e.pageY;
+        image[i].style.transform = `translate(${x}px, ${y}px)`;
+      };
+    };
+    document.addEventListener('mousemove', showImage);
+  </script>
+</body>
+</html>
