@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgb(205, 221, 221);
+}
+
+#container {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+
+.water-drop {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(104, 211, 211, 0.3), rgba(168, 168, 195, 0.4));
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  box-shadow: inset -8px -66px 42px -48px rgba(255, 255, 255, 1);
+  filter: drop-shadow(-1px 9px 3px grey);
+  cursor: pointer;
+}
+
+.water-drop:focus {
+  filter: drop-shadow(0 0 0 rgba(154, 152, 152, 0));
+  background: none;
+  box-shadow: none;
+}
+
+.water-drop::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, white, transparent);
+  top: 5%;
+  left: 15%;
+  filter: blur(6px);
+}
+
+.water-drop:focus.water-drop::before {
+  content: '';
+  position: nab ;
+  background: none;
+}
+
+.drop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(104, 211, 211, 0.3), rgba(168, 168, 195, 0.4));
+  border: none;
+  box-shadow: inset -8px -66px 42px -48px rgba(255, 255, 255, 1);
+  filter: drop-shadow(-1px 1px 2px rgb(100, 100, 100));
+}
+
+.drop:nth-child(2) {
+  animation: dropAnimation 0.1s linear;
+  animation-fill-mode: both;
+  width: 40px;
+  height: 40px;
+}
+
+.drop:nth-child(3) {
+  animation: dropAnimation1 0.1s linear;
+  animation-fill-mode: both;
+  width: 20px;
+  height: 20px;
+}
+
+.drop:nth-child(4) {
+  animation: dropAnimation2 0.1s linear;
+  animation-fill-mode: both;
+  width: 10px;
+  height: 10px;
+}
+
+.drop:nth-child(5) {
+  animation: dropAnimation3 0.1s linear;
+  animation-fill-mode: both;
+  width: 40px;
+  height: 40px;
+}
+
+.drop:nth-child(6) {
+  animation: dropAnimation4 0.1s linear;
+  animation-fill-mode: both;
+  width: 30px;
+  height: 30px;
+}
+
+.drop:nth-child(7) {
+  animation: dropAnimation5 0.1s linear;
+  animation-fill-mode: both;
+  width: 40px;
+  height: 40px;
+}
+
+.drop.active {
+  animation-play-state: running;
+}
+
+@keyframes dropAnimation {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-60px) translateX(10px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dropAnimation1 {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) translateX(40px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) translateX(80px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dropAnimation2 {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(20px) translateX(40px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px) translateX(80px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dropAnimation3 {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(40px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-70px) translateX(80px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dropAnimation4 {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) translateX(40px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-70px) translateX(-80px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes dropAnimation5 {
+  0% {
+    transform: translateY(0) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(40px) translateX(-40px) scale(0.5) rotate(var(--rotation-angle));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50px) translateX(-70px) scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="droplet.css">
+  <title>Droplet Animation</title>
+</head>
+<body>
+  <div id="container">
+    <div class="water-drop" tabindex="0"></div>
+  </div>
+
+  <script>
+    function createDrops() {
+      const container = document.getElementById('container');
+
+      for (let i = 0; i < 6; i++) {
+        const drop = document.createElement('div');
+        drop.className = 'drop';
+        container.appendChild(drop);
+      };
+
+      const drops = document.querySelectorAll('.drop');
+      drops.forEach(drop => {
+        drop.classList.add('active');
+      });
+    };
+
+    const waterDrop = document.querySelector('.water-drop');
+    waterDrop.addEventListener('mousedown', createDrops);
+
+    document.addEventListener('click', (event) => {
+      const clickElement = event.target;
+
+      if (!waterDrop.contains(clickElement)) {
+        const drops = document.querySelectorAll('.drop');
+        drops.forEach(drop => {
+          container.removeChild(drop);
+        });
+      };
+    });
+  </script>
+</body>
+</html>
